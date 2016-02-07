@@ -21,4 +21,12 @@ PVTA.God.Mode.Data <- rename(PVTA.God.Mode.Data, Route = V11)
 # Utility Functions #
 # # # # # # # # # # #
 
+Convert.DateString.To.Numeric<-function(d) {
+  as.numeric(as.POSIXct(d, tz="EST"))
+}
 
+PVTA.God.Mode.Data$Time <- lapply(PVTA.God.Mode.Data$Time, Convert.DateString.To.Numeric)
+PVTA.God.Mode.38.Data$Time <- lapply(PVTA.God.Mode.38.Data$Time, Convert.DateString.To.Numeric)
+
+current.time.datetime <- sort(PVTA.God.Mode.38.Data$Time)[1]
+current.time.numeric <- as.numeric(as.POSIXct(current.time.datetime, tz="EST"))

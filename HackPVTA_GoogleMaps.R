@@ -1,5 +1,5 @@
-library('plyr')
-library('dplyr')
+library(plyr)
+library(dplyr)
 library(RgoogleMaps)
 
 # Find average lon and lat
